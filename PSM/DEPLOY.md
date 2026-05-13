@@ -54,3 +54,35 @@ https://your-project-name.streamlit.app
 - Render：也可以部署 Streamlit，适合以后需要更自由的后端环境。
 - Hugging Face Spaces：适合机器学习项目展示。
 - 云服务器/VPS：最自由，但需要配置服务器、安全组、域名和进程守护，适合后期正式作品集网站。
+
+## 绑定独立域名：publicsentimentmirror.cyou
+
+Streamlit Community Cloud 官方支持的是 `xxx.streamlit.app` 子域名，不是完整自有域名。因此如果希望浏览器地址栏保持 `publicsentimentmirror.cyou`，建议改用 Render 部署。
+
+### Render 部署参数
+
+如果你在 Render 手动创建 Web Service，请填写：
+
+```text
+Root Directory: PSM
+Build Command: pip install -r requirements.txt
+Start Command: streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
+```
+
+如果你的 GitHub 仓库根目录已经直接是 `app.py`、`src/`、`pages/`，则 `Root Directory` 留空。
+
+### Render 绑定域名
+
+1. 在 Render Dashboard 打开该 Web Service。
+2. 进入 Settings。
+3. 找到 Custom Domains。
+4. 添加：
+
+```text
+publicsentimentmirror.cyou
+```
+
+5. Render 会给出需要在阿里云 DNS 添加的记录，一般是 CNAME 或 A/ALIAS 类记录。
+6. 回到阿里云云解析 DNS，按 Render 给出的值添加解析记录。
+7. 回到 Render 点击 Verify。
+8. 验证成功后，Render 会自动签发 HTTPS 证书。
