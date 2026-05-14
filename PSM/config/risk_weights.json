@@ -1,0 +1,10 @@
+{
+  "negative_ratio": 20,
+  "heat_growth": 15,
+  "topic_concentration": 15,
+  "opposition_ratio": 15,
+  "uncertainty_index": 15,
+  "extreme_expression_ratio": 10,
+  "interaction_amplification": 10
+}
+

@@ -1,0 +1,6 @@
+snownlp
+sentence-transformers
+bertopic
+pyecharts
+pyyaml
+
